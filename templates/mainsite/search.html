@@ -1,0 +1,95 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'mainsite/css/search.css' %}">
+  <script type="text/javascript" src="{% static 'js/ajaxpackage.js' %}"></script>
+  <script type="text/javascript" src="{% static 'mainsite/js/search.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/remfunc.js' %}"></script>
+  <script>
+  var searchurl = "{% url 'api:searchbook' %}";
+  var bookurl = "{% url 'mainsite:book' 0 %}";
+</script>
+  <title>阅读空间-搜索</title>
+</head>
+
+<body>
+  <div class="main_body">
+    <div class="search_heard">
+      <div class="return fl"><a href="/"></a></div>
+      <div class="search_form fr">
+        <div class="search_form_text fl">
+          <label for="search_value" style="display: none;">no show</label>
+          <input id='search_value' type="text" autocomplete="off" placeholder="双页一下 你就知道" autofocus="autofocus">
+        </div>
+        <div class="search_form_submit fl noshadow">
+          <a id="search">查询</a>
+        </div>
+      </div>
+    </div>
+    <div id="nosearch">
+      <div class="search_hot">
+        <div class="search_hot_nav"><span>大家都在搜</span></div>
+        <div class="search_hot_words clearfix">
+          <ul class="clearfix">
+            <li class="fl"><a>575</a></li>
+            <li class="fl"><a>双页一下你就知道</a></li>
+            <li class="fl"><a>史莱姆</a></li>
+            <li class="fl"><a>游戏人生</a></li>
+            <li class="fl"><a>空白</a></li>
+            <li class="fl"><a>休比</a></li>
+            <li class="fl"><a>小鸡炖蘑菇</a></li>
+            {% comment %} <li class="fl"><a>热词2</a></li>
+            <li class="fl"><a>热词3</a></li>
+            <li class="fl"><a>热词4</a></li>
+            <li class="fl"><a>热词5</a></li>
+            <li class="fl"><a>热词6</a></li>
+            <li class="fl"><a>热词7</a></li>
+            <li class="fl"><a>热词8</a></li>
+            <li class="fl"><a>热词9</a></li>
+            <li class="fl"><a>热词0</a></li> {% endcomment %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="hasresult">
+      <ul class="search_result" id="searchresult">
+        <a class="noshadow" href="{% url "mainsite:book" 1 %}">
+          <li>
+            <img src="{% static "mainsite/images/no game no life.jpg" %}" alt="图片">
+            <div class="search_result_info">
+              <div>
+                <span>no game no lifeno game no life</span>
+              </div>
+              <div>
+                <span>连载中</span><br>
+                <span>9102-1-1</span>
+              </div>
+            </div>
+          </li>
+        </a>
+
+        {% comment %} <li>
+          <img src="{% static "mainsite/images/no game no life.jpg" %}" alt="图片">
+          <div class="search_result_info">
+            <div>
+              <a>no game no life</a>
+            </div>
+            <div>
+              <span>123</span><br>
+              <span>9102-1-1</span>
+            </div>
+          </div>
+        </li> {% endcomment %}
+
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{% extends 'userspace/user_home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'userspace/css/userdetails.css' %}">
+<script type="text/javascript" src="{% static 'userspace/js/home.js' %}"></script>
+{% endblock %}
+{% block title %}阅读空间-用户中心{% endblock %}
+{% block body_center %}
+<div class="infoitem clearfix">
+  <div class="infotitle fl">用户名</div>
+  <div class="infocontext fr">{{user.username}}</div>
+</div>
+<div class="infoitem clearfix">
+  <div class="infotitle fl">姓名</div>
+  <div class="infocontext fr">{{user.name}}</div>
+</div>
+<div class="infoitem clearfix">
+  <div class="infotitle fl">手机号</div>
+  <div class="infocontext fr">{{user.contact}}</div>
+</div>
+<div class="infoitem clearfix">
+  <div class="infotitle fl">邮箱</div>
+  <div class="infocontext fr">{{user.mailbox}}</div>
+</div>
+<div class="infoitem clearfix">
+  <div class="infotitle fl">地址</div>
+  <div class="infocontext fr">{{user.address}}</div>
+</div>
+<div class="infoitem clearfix">
+  <div class="infotitle fl">签名</div>
+  <div class="infocontext fr">{{user.profiles | safe}}</div>
+</div>
+{% endblock %}

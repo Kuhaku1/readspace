@@ -1,0 +1,39 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'userspace/css/home.css' %}">
+    <script type="text/javascript" src="{% static 'js/remfunc.js' %}"></script>
+    {% block header %}{% endblock %}
+    <title>{% block title %}阅读空间{% endblock %}</title>
+</head>
+<body>
+<div class="main_body">
+    <div class="center">{% block body_center %}{% endblock %}</div>
+    <div class="footer">
+        <ul class="noselect noshadow">
+            <li><a href="/"></a>
+                <h2>首页</h2>
+            </li>
+            <li><a href="{% url 'mainsite:screen' %}"></a>
+                <h2>索引</h2>
+            </li>
+            <li><a href="{% url 'userspace:message' %}"></a>
+                <h2>消息</h2>
+            </li>
+            <li><a href="{% url 'userspace:collection' %}"></a>
+                <h2>收藏</h2>
+            </li>
+            <li><a href="{% url 'userspace:home' %}"></a>
+{#                <h2 class="hide">登陆</h2>#}
+                <h2>用户中心</h2>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

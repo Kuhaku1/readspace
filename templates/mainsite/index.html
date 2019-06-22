@@ -1,0 +1,102 @@
+{% extends 'mainsite/home_base.html' %}
+{% load static from staticfiles %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'mainsite/css/index.css' %}">
+<script type="text/javascript" src="{% static 'mainsite/js/index.js' %}"></script>
+{% endblock header %}
+
+{% block body_center %}
+<div class="rotationchart noshadow">
+  <div id="rotationchart" class="rotationcharttransition">
+    <a href="#1"><img src="{% static 'mainsite/images/re0.jpg' %}" alt="图片"></a>
+    <a href="#2"><img src="{% static 'mainsite/images/zzds.png' %}" alt="图片"></a>
+    <a href="#3"><img src="{% static 'mainsite/images/nogamenolife.jpg' %}" alt="图片"></a>
+    <a href="#4"><img src="{% static 'mainsite/images/beng3.jpg' %}" alt="图片"></a>
+    <a href="#1"><img src="{% static 'mainsite/images/re0.jpg' %}" alt="图片"></a>
+
+  </div>
+  <div id="rotationchartindex">
+    <span class="active"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<div class="recommend ">
+  <div class="recommend_nav clearfix">
+    <span class="fl">精品推荐</span>
+    <a href="{% url 'mainsite:screen' %}" class="fr">查看更多&nbsp;&nbsp;&gt;</a>
+  </div>
+  <div class="recommend_info">
+    <ul class="clearfix">
+      {% for foo in bookRecommend %}
+      <li class="info_item fl">
+        <a class="noshadow" href="{% url "mainsite:book" foo.id %}">
+          <img src="{{ foo.image.url }}" alt="图片" />
+          <span class="item_name">{{ foo.name }}</span>
+          <span class="item_result">
+            {% if foo.lastUpdated %}{{ foo.lastUpdated }}
+            {% else %}没有数据
+            {% endif %}
+          </span>
+        </a>
+      </li>
+      {% empty %}
+      <a href="">error</a>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<div class="recommend">
+  <div class="recommend_nav clearfix">
+    <span class="fl">最新热门</span>
+    <a href="{% url 'mainsite:screen' %}" class="fr">查看更多&nbsp;&nbsp;&gt;</a>
+  </div>
+  <div class="recommend_info">
+    <ul class="clearfix">
+      {% for popularity in bookPopularity %}
+      <a class="noshadow" href="{% url "mainsite:book" popularity.id %}">
+        <li class="info_item fl">
+          <img src="{{ popularity.image.url }}" alt="图片">
+          <span class="item_name">{{ popularity.name }}</span>
+          <span class="item_result">
+            {% if popularity.lastUpdated %}{{ popularity.lastUpdated }}
+            {% else %}没有数据
+            {% endif %}
+          </span>
+        </li>
+      </a>
+      {% empty %}
+      <a href="">error</a>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<div class="recommend">
+  <div class="recommend_nav clearfix">
+    <span class="fl">这本轻小说真厉害</span>
+    <a href="{% url 'mainsite:novelrank' %} " class="fr">查看历史排行&nbsp;&nbsp;&gt;</a>
+  </div>
+  <div class="recommend_info">
+    <ul class="clearfix">
+      {% for tmprank in bookrank2019 %}
+      <a class="noshadow" href="{% url "mainsite:book" tmprank.book.id %}">
+        <li class="info_item fl">
+          <img src="{{ tmprank.book.image.url }}" alt="图片">
+          <a class="item_name">{{ tmprank.book.name }}</a>
+          <span class="item_result">
+            {% if tmprank.book.lastUpdated %}{{ tmprank.book.lastUpdated }}
+            {% else %}没有数据
+            {% endif %}
+          </span>
+        </li>
+      </a>
+      {% empty %}
+      <a href="">error</a>
+      {% endfor %}
+
+    </ul>
+  </div>
+</div>
+{% endblock body_center %}

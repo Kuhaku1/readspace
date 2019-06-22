@@ -1,0 +1,23 @@
+{% extends 'userspace/user_home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'userspace/css/histroy.css' %}">
+<script type="text/javascript" src="{% static 'userspace/js/home.js' %}"></script>
+{% endblock %}
+{% block title %}阅读空间-用户中心{% endblock %}
+{% block body_center %}
+{% for tmp in userhistroy %}
+<div class="histroyitem noshadow">
+  <div class="histroytime">{{tmp.lastUpdated}}</div>
+  <a href="{% url "mainsite:book" tmp.book.id %}">
+    <div class="histroybook">
+      <div class="histroybookname">{{tmp.book.name}}</div>
+      <div class="histroybooksubname">第{{tmp.subsection.bookNumber}}卷</br>{{tmp.subsection.name}}</div>
+    </div>
+  </a>
+</div>
+{% empty %}
+<p>没有历史</p>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,50 @@
+.collectionitem {
+  background-color: aliceblue;
+  margin: 0 0.3125rem;
+  border-radius: 0.625rem;
+  margin-bottom: 0.3125rem;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+}
+
+.collectionimg {
+  margin-left: 0.3125rem;
+  width: 3.75rem;
+  height: 5rem;
+}
+
+.collectionimg img {
+  width: 3.75rem;
+  height: 5rem;
+  border-radius: 0.3125rem;
+}
+
+.collectioninfo {
+  position: relative;
+  margin-left: 0.625rem;
+  height: 5rem;
+  width: 17.5rem;
+}
+
+.collectioninfo .collectionname {
+  font: 1.25rem/1.4375rem 'Microsoft Yahei';
+  width: 17.5rem;
+  position: absolute;
+  top: 0rem;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: 0.375rem;
+}
+
+.collectioninfo .collectiontime {
+  font: 0.875rem/1.125rem 'Microsoft Yahei';
+  width: 17.5rem;
+  height: 1.125rem;
+  color: red;
+  position: absolute;
+  bottom: 0rem;
+  margin-bottom: 0.3125rem;
+}

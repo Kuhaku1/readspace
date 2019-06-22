@@ -1,0 +1,87 @@
+body, p, h1, h2, h3, h4, h5, h6, ul, li, dl, dd, input, form, select span {
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+}
+
+em {
+    font-style: normal;
+}
+
+/*清除塌陷*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both; /*清除浮动*/
+}
+
+
+.clearfix {
+    zoom: 1;
+}
+
+/*清除间距（行内快）*/
+
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+   not supported by any browser */
+
+}
+
+.noshadow {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.main_body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #cecece;
+    overflow: hidden;
+    /*overflow-x: hidden;*/
+    /*overflow-y: auto;*/
+}

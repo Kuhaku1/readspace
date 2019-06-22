@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="{% static 'js/jquery-1.12.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+    <script>
+        $(function () {
+            CKEDITOR.replace('TextArea1',
+                {
+                    toolbar: [
+                        ['div', 'Source', '-', 'Save', 'NewPage', 'Preview', '-'],
+                        ['Templates', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
+                        ['Print', 'SpellChecker', 'Scayt'], '/',
+                        ['Undo', 'Redo', '-', 'Find', 'Replace', '-', 'SelectAll', 'RemoveFormat'], '/',
+                        ['Bold', 'Italic', 'Underline', 'Strike', '-', 'Subscript', 'Superscript'],
+                        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', 'Blockquote'],
+                        ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'], '/',
+                        ['Link', 'Unlink', 'Anchor'],
+                        ['Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak'],
+                        ['Maximize', 'ShowBlocks', '-', 'About', 'pbckcode'], '/',
+                        ['TextColor', 'BGColor'],
+                        ['Styles', 'Format', 'Font', 'FontSize'],
+
+                    ],
+                    height: 400,
+                    width: 600,
+                }
+            );
+        });
+
+    </script>
+</head>
+<body>
+
+<form method="post" action="">
+    <textarea id="TextArea1" cols="20" rows="2" name="TextArea1"></textarea>
+    <input type="submit"/>
+</form>
+</body>
+</html>

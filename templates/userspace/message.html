@@ -1,0 +1,33 @@
+{% extends 'mainsite/home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'userspace/css/message.css' %}">
+{% endblock header %}
+{% block title %}
+阅读空间-消息
+{% endblock title %}
+{% block body_center %}
+{% for tmp  in message %}
+<div class="messageitem">
+  <div class="messagehearder clearfix">
+    <div class="messagehearderimg fl">
+      <img src="{{ MEDIA_URL }}user/default_head_portrait.jpg" alt="头像">
+    </div>
+    <div class="messageinfo fl">
+      <div class="messageheardername">{{tmp.fromuser.name}}</div>
+      <div class="messageheardertime">{{tmp.messagetime}}</div>
+    </div>
+  </div>
+  <div class="messagecontext">
+  {{tmp.message}}
+  </div>
+</div>
+
+{% comment %} {{tmp.fromuser}}</br>
+{{tmp.touser}}</br>
+{{tmp.message}}</br>
+{{tmp.messagetime}}</br>
+{{tmp.is_views}}</br> {% endcomment %}
+
+{% endfor %}
+{% endblock body_center %}

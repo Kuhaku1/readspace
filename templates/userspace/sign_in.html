@@ -1,0 +1,153 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'userspace/css/sign_in.css' %}">
+  <script type="text/javascript" src="{% static 'js/ajaxpackage.js' %}"></script>
+  <script type="text/javascript" src="{% static 'userspace/js/sign_in.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/remfunc.js' %}"></script>
+  <title>阅读空间-签到</title>
+
+</head>
+
+<body>
+  <div class="main_body">
+    <div class="sign_in">
+      <div class="clearfix">
+        <a class="fl goback" onclick="history.go(-1)"> 返回</a>
+        <a class="signInButton fl" id="signInButton">签到</a></div>
+      <ul id="SelectionMark">
+        <li class="clearfix 
+          {% if sign == 1 %} 
+            {% if flag %}animationsign
+            {% else %}signold
+            {% endif %}
+          {% else %}signold
+          {% endif %}
+          " data-sign="1">
+          <span class="fl">第一天2书币</span>
+          <span class="fr">2</span>
+        </li>
+        <li class="clearfix 
+          {% if sign == 2 %} 
+            {% if flag %}animationsign
+            {% else %}signold
+            {% endif %}
+          {% else %}
+            {% if sign < 2 %}signfuture
+            {% else %}signold
+            {% endif %}
+          {% endif %}" data-sign="2">
+          <span class="fl">第二天4书币</span>
+          <span class="fr">2</span>
+        </li>
+        <li class="clearfix
+          {% if sign == 3 %} 
+            {% if flag %}animationsign
+            {% else %}signold
+            {% endif %}
+          {% else %}
+            {% if sign < 3 %}signfuture
+            {% else %}signold
+            {% endif %}
+          {% endif %}
+        " data-sign="3">
+          <span class="fl">第三天7书币</span>
+          <span class="fr">2</span>
+        </li>
+        <li class="clearfix
+          {% if sign == 4 %} 
+            {% if flag %}animationsign
+            {% else %}signold
+            {% endif %}
+          {% else %}
+            {% if sign < 4 %}signfuture
+            {% else %}signold
+            {% endif %}
+          {% endif %}
+        " data-sign="4">
+          <span class="fl">第四天10书币</span>
+          <span class="fr">2</span>
+        </li>
+        <li class="clearfix
+          {% if sign == 5 %} 
+            {% if flag %}animationsign
+            {% else %}signold
+            {% endif %}
+          {% else %}
+            {% if sign < 5 %}signfuture
+            {% else %}signold
+            {% endif %}
+          {% endif %}
+        " data-sign="5">
+          <span class="fl">第五天休息</span>
+          <span class="fr">2</span>
+        </li>
+        <li class="clearfix 
+          {% if sign == 6 %} 
+            {% if flag %}animationsign
+            {% else %}signold
+            {% endif %}
+          {% else %}
+            {% if sign < 6 %}signfuture
+            {% else %}signold
+            {% endif %}
+          {% endif %}
+        " data-sign="6">
+          <span class="fl">第六天5书币</span>
+          <span class="fr">2</span>
+        </li>
+        <li class="clearfix
+          {% if sign == 7 %} 
+            {% if flag %}animationsign
+            {% else %}signold
+            {% endif %}
+          {% else %}
+            {% if sign < 7 %}signfuture
+            {% else %}signold
+            {% endif %}
+          {% endif %}
+        " data-sign="7">
+          <span class="fl">第七天5小时免费阅读</span>
+          <span class="fr">2</span>
+        </li>
+      </ul>
+    </div>
+    <div class="document_information">
+      <p>
+        说明文档
+      </p>
+      <br>
+      <p>
+        签到周期为7天 <br>
+        不同的签到累计天数获得不同奖励 <br>
+        签到周期满或中断签到都会重值签到进度 <br>
+        奖励内容 <br>
+        第一天 10礼物卷 <br>
+        第二天 10阅读卷 <br>
+        第三天 20书卷 <br>
+        第四天 50礼物卷 <br>
+        第五天 休息 <br>
+        第六天 5书币卷（7天有效） <br>
+        第七天 5小时免费阅读 <br><br><br>
+      </p>
+    </div>
+  </div>
+  <script>
+    var sign_inurl = "{% url 'api:signinhandle' %}";
+    var sign_in_li_index = {{sign}};
+    
+    {% if flag %}
+    var signflag=true;
+    {% else %}
+     var signflag=false;
+    {% endif %}
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+{% extends 'mainsite/home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'mainsite/css/bookinfo.css' %}">
+<script type="text/javascript" src="{% static 'js/ajaxpackage.js' %}"></script>
+<script type="text/javascript" src="{% static 'mainsite/js/bookinfo.js' %}"></script>
+<script type="text/javascript">
+  var islogin = "{{ iflogin }}";
+  {% comment %} 下面有替换 {% endcomment %}
+  var ifcollection = {% if ifcollection %}true {%else %}false {%endif %};
+  var iflike = {%if iflike %}true {%else %}false {%endif %};
+  var ifcoin = {%if ifcoin %}true {%else %}false {%endif %};
+  var bookid = {{bookid}};
+  {% comment %} var ifcollection = {% if ifcollection %}true {%else %}false {%endif %};
+  var iflike = {%if iflike %}true {%else %}false {%endif %};
+  var ifcoin = {%if ifcoin %}true {%else %}false {%endif %};
+  var bookid = {{bookid}}; {% endcomment %}
+  var likeurl = "{% url 'api:booklike' %}";
+  var collectionurl = "{% url 'api:bookcollection' %}";
+  var coinurl = "{% url 'api:bookcoin' %}";
+  var commenturl = "{% url 'api:usercomment' %}";
+</script>
+{% endblock header %}
+{% block title %}
+阅读空间
+{% endblock title %}
+{% block body_center %}
+<div class="bookitem">
+  <div class="booksubitem clearfix">
+    <img src="{{ book.image.url }}" class="fl">
+    <ul class="booksubiteminfo fl">
+      <li class="bookiteminfo">
+        <span class="title">名称</span>
+        <a>
+          <div class="duoyuhangyicang"> {{ book.name}} </div>
+        </a>
+      </li>
+      <li class="bookiteminfo">
+        <span class="title">状态</span>
+        <a>{{ bookstate }}</a>
+      </li>
+      <li class="bookiteminfo">
+        <span class="title">作者</span>
+        <a>
+          <div class="duoyuhangyicang">
+            {% for tmp in bookauthor  %}
+            <span>{{tmp.name}}</span>
+            {% empty %}
+            <span>作者暂时未导入</span>
+            {% endfor %}
+          </div>
+        </a>
+      </li>
+      <li class="bookiteminfo">
+        <span class="title">类型</span>
+        <a>
+          <div class="duoyuhangyicang">
+            {% for tmp in bookfamily %}
+            <span>{{tmp}}&nbsp;&nbsp;</span>
+
+            {% endfor %}
+          </div>
+        </a>
+      </li>
+      <li class="bookiteminfo">
+        <span class="title">更新</span>
+        <a>{{updateinfo}}</a>
+      </li>
+      <li class="bookiteminfo">
+        <div class="clearfix bookfunction" id="bookevent">
+          {% if iflogin %}
+          {% comment %} 控制收藏 点赞 投币 {% endcomment %}
+          <span class="fl {% if iflike %}hide{% else %}{% endif %}"></span>
+          <span class="fl {% if iflike %}{% else %}hide{% endif %}"></span>
+          <span class="fl {% if ifcollection %}hide{% else %}{% endif %}"></span>
+          <span class="fl {% if ifcollection %}{% else %}hide{% endif %}"></span>
+          <span class="fl {% if ifcoin %}hide{% else %}{% endif %}"></span>
+          <span class="fl {% if ifcoin %}{% else %}hide{% endif %}"></span>
+          {% else %}
+          <a href="{% url 'userspace:login' %}">登录获得更多操作</a>
+          {% endif %}
+
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="briefintroduction">
+    <span class="deiats">
+      {{ book.profiles|safe }}
+    </span>
+  </div>
+  <div class="volumelist">
+
+    {% for tmp in subsections %}
+    <div class="volumeitem clearfix">
+      <a href="{% url "mainsite:read" tmp.id %}">
+        <div class="volumeitemleft fl">{{tmp.name}} </div>
+      </a>
+      <div class="volumeitemright fr"></div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="comment">
+  {% if iflogin %}
+  <div class="commentinput clearfix">
+    <textarea name="" id="submittext" cols="30" rows="10" class="committext fl" ></textarea>
+    <div class="commentsubmit fl" id="submitcomment">发布</div>
+  </div>
+  {% else %}
+   <div class="commentinput clearfix">
+    <div class="nologin">登录才能评论</div>
+  </div>
+  {% endif %}
+  {% for tmpcomment in comments %}
+  <div class="commentcontext">
+    <div class="commentitem">
+      <div class="commenthearder">
+        {{tmpcomment.user.username}}
+      </div>
+      <div class="commenttextinfo">
+        {{tmpcomment.comment}}
+      </div>
+    </div>
+  </div>
+  
+  {% endfor %}
+  
+</div>
+
+{% csrf_token %}
+{% comment %} <div class="booksubitem">
+  <img src="{% static 'images/no game no  life.jpg' %}">
+  <ul class="booksubiteminfo">
+    <li><span>名称</span><a href="">no |新浏览|game no lifeno|新浏览|g|新浏览|g|新浏览|g </a></li>
+    <li><span>状态</span><a href="">连载中</a></li>
+    <li><span>作者</span><a href="">李星宇</a></li>
+    <li><span>类型</span><a href="">李星宇</a></li>
+    <li><span>更新</span><a href="">李星宇</a></li>
+    <li><span>简介</span><a href="">李星宇</a></li>
+  </ul>
+</div> {% endcomment %}
+
+</div>
+{% endblock body_center %}

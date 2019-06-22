@@ -1,0 +1,10 @@
+{% extends 'userspace/user_home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'userspace/css/balance.css' %}">
+<script type="text/javascript" src="{% static 'userspace/js/home.js' %}"></script>
+{% endblock %}
+{% block title %}阅读空间-用户中心{% endblock %}
+{% block body_center %}
+暂无活动
+{% endblock %}

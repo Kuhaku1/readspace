@@ -1,0 +1,61 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'mainsite/css/bookread.css' %}">
+  <script type="text/javascript" src="{% static 'js/remfunc.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/ajaxpackage.js' %}"></script>
+  <script type="text/javascript" src="{% static 'mainsite/js/bookread.js' %}"></script>
+  <title>阅读空间-{{subsection.name}}</title>
+  <script>
+  var bookid = {{bookid}};
+  </script>
+</head>
+
+<body>
+  <div class="bookbody" id="bookmain">
+    <!--
+        主文本
+    -->
+    <div id="bookcontext" class="bookcontext bookcontextfont_3">
+      {% for tmp in centextlist %}
+      {% if tmp %} <p>{{tmp}}</p>{% else %}</br>{% endif %}
+      {% endfor %}
+    </div>
+
+    <!--控制块-->
+    <div id="consolemenu" class="contextconsole hide noshadow">
+      <div class="bookmenuhearder">
+        <a href="{% url "mainsite:book" subsection.book.id %}">
+          <span id="backmenu" class="bookmenuback fl"></span>
+        </a>
+      </div>
+      <div class="bookmenubody">
+        <div>
+          简介
+        </div>
+        <div>
+          {{subsection.profiles|safe}}
+        </div>
+      </div>
+      <div class="bookmenufooter">
+        <div class="inini">进度</div>
+        <div class="functionmuen">
+        <div>当前字号<a id="contextfontsize">中号</a></div>
+          <span id="narrowfont" class="fl"></span>
+          <span id="enlargefont" class="fl"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {% csrf_token %}
+</body>
+
+</html>

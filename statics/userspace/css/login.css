@@ -1,0 +1,52 @@
+.login_body {
+  margin-top: 12.5rem;
+  margin-left: 1.5625rem;
+  width: calc(100% - 6.25rem);
+  padding: 0.625rem 1.5625rem 1.25rem 1.5625rem;
+  background-color: #FFFFFF;
+}
+
+/*.login_body form{*/
+/*width: 100%;*/
+/*overflow: hidden;*/
+/*}*/
+#username,
+#userpassword {
+  /*margin: 0 auto;*/
+  display: block;
+  margin-bottom: 0.625rem;
+  padding-left: 0.9375rem;
+  width: calc(100% - 1.1875rem);
+  border: #cecece solid 0.125rem;
+  outline: none;
+  font: 1.25rem/2.5rem 'Microsoft Yahei';
+  border-radius: 0.5rem;
+  background-color: inherit;
+}
+
+#username:focus,
+#userpassword:focus {
+  border-color: #00ad9c;
+}
+
+.login_error {
+  margin-left: 0.9375rem;
+  font: 1rem/1.25rem 'Microsoft Yahei';
+  color: #FF0000;
+  height: 1.25rem;
+  margin-bottom: 0.3125rem;
+  /*background-color: #06b6ef;*/
+  overflow: hidden;
+}
+
+
+.user_submit {
+  display: block;
+  width: calc(100% - 0.25rem);
+  height: 3.75rem;
+  margin: 0.9375rem auto 0;
+  background-color: #06b6ef;
+  color: #FFFFFF;
+  font: bold 1.25rem/3.75rem 'Microsoft Yahei';
+  border-width: 0;
+}

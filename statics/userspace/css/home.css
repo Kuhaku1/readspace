@@ -1,0 +1,63 @@
+.center {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 3.125rem;
+    margin: 0.125rem 0 0.1875rem;
+    border-bottom: #37474f solid 0.0625rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #cecece;
+}
+
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3.125rem;
+    background-color: #1dae79;
+}
+
+.footer li {
+    float: left;
+    width: 20%;
+}
+
+.footer li a {
+    display: block;
+    width: 1.875rem;
+    height: 1.875rem;
+    background: url('../../images/icon.png') 0 0 no-repeat;
+    background-size: 2.1875rem 19.6875rem;
+    margin: 0.25rem auto 0;
+}
+
+.footer li:nth-child(1) a {
+    background-position: 0 -4.375rem;
+}
+
+.footer li:nth-child(2) a {
+    background-position: 0 -6.5625rem;
+}
+
+.footer li:nth-child(3) a {
+    background-position: 0 -8.75rem;
+}
+
+.footer li:nth-child(4) a {
+    background-position: 0 -10.9375rem;
+}
+
+.footer li:nth-child(5) a {
+    background-position: 0 -13.125rem;
+}
+
+.footer li h2 {
+    height: 0.9375rem;
+    color: #333333;
+    font-size: 0.625rem;
+    text-align: center;
+}

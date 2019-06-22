@@ -1,0 +1,73 @@
+{% extends 'userspace/user_home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'userspace/css/userpage.css' %}">
+<script type="text/javascript" src="{% static 'userspace/js/home.js' %}"></script>
+{% endblock %}
+{% block title %}阅读空间-用户中心{% endblock %}
+{% block body_center %}
+<div class="user_info clearfix">
+  <div class="fl"><img src="{{ MEDIA_URL }}user/default_head_portrait.jpg" alt="头像"></div>
+  <div class="fl">
+    <span>{{user.name}}</span>
+    <span>{{user.profiles | safe}}</span>
+  </div>
+  <div class="fr"><a href="{% url "userspace:userdetails" %}"><span></span></a></div>
+</div>
+<div class="userfunction clearfix">
+  <ul class="clearfix noshadow">
+    <li class="itemfunc fl">
+      <a href="{% url "userspace:collection" %}">
+        <span></span>
+        <a>收藏</a>
+      </a>
+    </li>
+
+
+    <li class="itemfunc fl">
+      <a href="{% url "userspace:balance" %}">
+        <span></span>
+        <a>余额</a>
+      </a>
+    </li>
+
+
+    <li class="itemfunc fl">
+      <a href="{% url "userspace:histroy" %}">
+        <span></span>
+        <a>历史</a>
+      </a>
+    </li>
+
+  </ul>
+</div>
+<div class="function_oriented noshadow">
+  <ul>
+    <li class="guide_item">
+      <a href="{% url "userspace:balance" %}" class="clearfix">
+        <span class="fl">我的钱包</span><span class="fr"></span>
+      </a>
+    </li>
+    <li class="guide_item">
+      <a href="{% url "userspace:collection" %}" class="clearfix">
+        <span class="fl">我的书库</span><span class="fr"></span>
+      </a>
+    </li>
+    {% comment %} <li class="guide_item">
+      <a href="{% url "userspace:balance" %}" class="clearfix">
+        <span class="fl">我的VIP</span><span class="fr"></span>
+      </a>
+    </li> {% endcomment %}
+    <li class="guide_item">
+      <a href="{% url "userspace:useractivityspace" %}" class="clearfix">
+        <span class="fl">活动中心</span><span class="fr"></span>
+      </a>
+    </li>
+    <li class="guide_item">
+      <a class="clearfix">
+        <span class="fl">我的等级</span><span class="fr"></span>
+      </a>
+    </li>
+  </ul>
+</div>
+{% endblock %}

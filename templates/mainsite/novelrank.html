@@ -1,0 +1,92 @@
+{% extends 'mainsite/home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'mainsite/css/index.css' %}">
+{% endblock header %}
+{% block title %}
+这本轻小说真厉害
+{% endblock title %}
+{% block body_center %}
+
+<div class="recommend">
+  <div class="recommend_nav clearfix">
+    <span class="fl">2019</span>
+    <a href="{% url 'mainsite:novelrankyear' 2019 %}" class="fr">查看更多&nbsp;&nbsp;&gt;</a>
+  </div>
+  <div class="recommend_info">
+    <ul class="clearfix">
+      {% for tmp in bookrank2019 %}
+      <a class="noshadow" href="{% url "mainsite:book" tmp.book.id %}">
+        <li class="info_item fl">
+          <img src="{{ tmp.book.image.url }}" alt="图片">
+          <span class="item_name">{{ tmp.book.name }}</span>
+          <span class="item_result">
+            {% if tmp.book.lastUpdated %}{{ tmp.book.lastUpdated }}
+            {% else %}没有数据
+            {% endif %}
+          </span>
+        </li>
+      </a>
+      {% empty %}
+      <a href="">error</a>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="recommend">
+  <div class="recommend_nav clearfix">
+    <span class="fl">2018</span>
+    <a href="{% url 'mainsite:novelrankyear' 2018 %}" class="fr">查看更多&nbsp;&nbsp;&gt;</a>
+  </div>
+  <div class="recommend_info">
+    <ul class="clearfix">
+      {% for tmp in bookrank2018 %}
+      <a class="noshadow" href="{% url "mainsite:book" tmp.book.id %}">
+        <li class="info_item fl">
+          <img src="{{ tmp.book.image.url }}" alt="图片">
+          <span class="item_name">{{ tmp.book.name }}</span>
+          <span class="item_result">
+            {% if tmp.book.lastUpdated %}{{ tmp.book.lastUpdated }}
+            {% else %}没有数据
+            {% endif %}
+          </span>
+        </li>
+      </a>
+      {% empty %}
+      <a href="">error</a>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="recommend">
+  <div class="recommend_nav clearfix">
+    <span class="fl">2017</span>
+    <a href="{% url 'mainsite:novelrankyear' 2017 %}" class="fr">查看更多&nbsp;&nbsp;&gt;</a>
+  </div>
+  <div class="recommend_info">
+    <ul class="clearfix">
+      {% for tmp in bookrank2017 %}
+      <a class="noshadow" href="{% url "mainsite:book" tmp.book.id %}">
+        <li class="info_item fl">
+          <img src="{{ tmp.book.image.url }}" alt="图片">
+          <span class="item_name">{{ tmp.book.name }}</span>
+          <span class="item_result">
+            {% if tmp.book.lastUpdated %}{{ tmp.book.lastUpdated }}
+            {% else %}没有数据
+            {% endif %}
+          </span>
+        </li>
+      </a>
+      {% empty %}
+      <a href="">error</a>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock body_center %}

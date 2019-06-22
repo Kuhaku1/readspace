@@ -1,0 +1,39 @@
+.histroyitem {
+  width: 22.1875rem;
+  margin: 0.3125rem 0.625rem;
+  background-color: #e5eceb;
+  border-radius: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+
+.histroytime {
+  width: 21.875rem;
+  height: 1.875rem;
+  color: black;
+  border-bottom: 0.0625rem solid #84ce90;
+  font: 1.25rem/1.875rem 'Microsoft Yahei';
+  padding-left: 0.625rem;
+}
+
+.histroybookname {
+  width: 21.25rem;
+  font: 1.25rem/1.75rem 'Microsoft Yahei';
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding-left: 0.3125rem;
+  margin-top: 0.3125rem;
+}
+
+.histroybooksubname {
+  width: 21.25rem;
+  font: 1rem/1.5rem 'Microsoft Yahei';
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding-left: 0.3125rem;
+}

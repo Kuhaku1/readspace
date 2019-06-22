@@ -1,0 +1,88 @@
+{% extends 'mainsite/home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'mainsite/css/screen.css' %}">
+<script type="text/javascript" src="{% static 'js/ajaxpackage.js' %}"></script>
+<script type="text/javascript" src="{% static 'mainsite/js/screen.js' %}"></script>
+<script>
+  var finurl = "{% url 'api:findbook' %}";
+</script>
+{% endblock header %}
+{% block title %}
+阅读空间
+{% endblock title %}
+{% block body_center %}
+<div>
+  <div class="screeningclassify" id="screenitem">
+    <span data-identity="0">付费</span>
+    <span data-identity="1">类型</span>
+    <span data-identity="2">状态</span>
+    <span data-identity="3">筛选</span>
+  </div>
+  <div class="filter_details noshadow" id="deltails_item">
+    <div class="hide">
+      <ul class="clearfix" id="screen1">
+        <li class="fl"><a>全部</a></li>
+        <li class="fl"><a>免费</a></li>
+        <li class="fl"><a>VIP</a></li>
+      </ul>
+    </div>
+    <div class="hide">
+      <ul class="clearfix" id="screen2">
+        <li class="fl"><a>全部 </a></li>
+        <li class="fl"><a>热血</a></li>
+        <li class="fl"><a>奇幻</a></li>
+        <li class="fl"><a>冒险</a></li>
+        <li class="fl"><a>战斗</a></li>
+        <li class="fl"><a>穿越</a></li>
+        <li class="fl"><a>日常</a></li>
+        <li class="fl"><a>科幻</a></li>
+        <li class="fl"><a>治愈</a></li>
+        <li class="fl"><a>校园</a></li>
+        <li class="fl"><a>恋爱</a></li>
+        <li class="fl"><a>后宫</a></li>
+        <li class="fl"><a>猎奇</a></li>
+        <li class="fl"><a>魔法</a></li>
+        <li class="fl"><a>历史</a></li>
+        <li class="fl"><a>致郁</a></li>
+        <li class="fl"><a>推理</a></li>
+        <li class="fl"><a>智斗</a></li>
+        <li class="fl"><a>装逼</a></li>
+        <li class="fl"><a>职场</a></li>
+        <li class="fl"><a>搞笑</a></li>
+      </ul>
+    </div>
+    <div class="hide">
+      <ul class="clearfix" id="screen3">
+        <li class="fl"><a>全部</a></li>
+        <li class="fl"><a>已完结</a></li>
+        <li class="fl"><a>连载中</a></li>
+      </ul>
+    </div>
+    <div class="hide">
+    </div>
+  </div>
+</div>
+<div id="result">
+  <ul class="clearfix" id="findresult">
+
+    {% for boomtmp in book %}
+    <a class="noshadow" href="{% url "mainsite:book" boomtmp.id %}">
+      <li class="info_item fl">
+        <img src="{{ boomtmp.image.url }}" alt="{{ boomtmp.name }}">
+        <span class="item_name">{{ boomtmp.name }}</span>
+        <span class="item_result">
+          {% if boomtmp.lastUpdated %}{{ boomtmp.lastUpdated }}
+          {% else %}没有数据
+          {% endif %}
+        </span>
+      </li>
+    </a>
+    {% empty %}
+    <a href="">error</a>
+    {% endfor %}
+
+
+  </ul>
+</div>
+{% endblock body_center %}

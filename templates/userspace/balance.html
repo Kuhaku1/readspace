@@ -1,0 +1,25 @@
+{% extends 'userspace/user_home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'userspace/css/balance.css' %}">
+<script type="text/javascript" src="{% static 'userspace/js/home.js' %}"></script>
+{% endblock %}
+{% block title %}阅读空间-用户中心{% endblock %}
+{% block body_center %}
+<div class="userbalance">
+  <div class="userbalancehearder clearfix">
+    <div class="userbalancetitle fl">余额</div>
+    <div class="userbalancepay fr">充值</div>
+  </div>
+  <div class="balancevlaue">{{userbalance.money}}</div>
+</div>
+
+<div class="usericon">
+  <div class="usericonhearder clearfix">
+    <div class="usericontitle fl">硬币</div>
+    <div class="usericonpay fr">充值</div>
+  </div>
+  <div class="iconvlaue">{{userbalance.coin}}</div>
+</div>
+
+{% endblock %}

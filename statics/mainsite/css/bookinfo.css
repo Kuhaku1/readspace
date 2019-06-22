@@ -1,0 +1,243 @@
+.bookitem {
+  width: 100%;
+}
+
+.booksubitem {
+  /*width: -webkit-calc(100% - 2p\\\x);*/
+  /*width: -moz-calc(100% - 0.125rem);*/
+  /*calc(100%-0.125rem);*/
+  position: relative;
+  width: 22.8125rem;
+  margin: 0rem 0.3125rem;
+  height: 9.375rem;
+  background-color: #bad1cf;
+  overflow: hidden;
+  border-radius: 0.625rem;
+}
+
+.booksubitem img {
+  width: 6.5625rem;
+  margin-left: 0.625rem;
+  margin-top: 0.3125rem;
+  border-radius: 0.625rem;
+}
+
+
+.booksubiteminfo {
+  width: 14.375rem;
+  margin-top: 0.3125rem;
+  margin-left: 0.3125rem;
+}
+
+.booksubiteminfo .bookiteminfo {
+  display: block;
+  border-bottom: #1dae79 solid 0.0625rem;
+  width: 14.25rem;
+  min-height: 1.1875rem;
+  max-height: 1.1875rem;
+  font-size: 0;
+  /*行内块有边距（空格与换行的）*/
+}
+
+.booksubiteminfo .bookiteminfo .title,
+.booksubiteminfo .bookiteminfo a {
+  display: inline-block;
+  font: bold 0.75rem/1.1875rem 'Microsoft Yahei';
+  color: #494e4d;
+  vertical-align: middle;
+}
+
+.booksubiteminfo .bookiteminfo .title {
+  width: 1.5rem;
+  background-color: #0aae29;
+}
+
+.booksubiteminfo .bookiteminfo a {
+  margin-left: 0.625rem;
+  width: 11.25rem;
+}
+
+.booksubiteminfo .bookiteminfo .duoyuhangyicang {
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+}
+
+.booksubiteminfo .bookiteminfo:nth-child(1) a {
+  font: bold 0.75rem/0.875rem 'Microsoft Yahei';
+  margin: 0 0 0.25rem 0.625rem;
+}
+
+.booksubiteminfo .bookiteminfo:nth-child(1) a div {
+  -webkit-line-clamp: 2;
+}
+
+.booksubiteminfo .bookiteminfo:nth-child(1) {
+  max-height: 1.75rem;
+}
+
+.booksubiteminfo .bookiteminfo:nth-child(6) {
+  max-height: 1.875rem;
+}
+
+.bookfunction {
+  display: inline-block;
+  /* background-color: #0E2231; */
+  margin-left: 3.25rem;
+  width: 8.75rem;
+}
+
+.bookfunction span {
+  width: 1.875rem;
+  height: 1.875rem;
+  /* display     : block; */
+  background: url("../images/bookicon.png") 0 0 no-repeat;
+  background-size: 1.875rem 13.125rem;
+  margin-right: 0.9375rem;
+}
+
+
+.bookfunction span:nth-child(1) {
+  background-position: 0 -3.75rem;
+}
+
+.bookfunction span:nth-child(2) {
+  background-position: 0 -5.625rem;
+}
+
+.bookfunction span:nth-child(3) {
+  background-position: 0 -7.5rem;
+}
+
+.bookfunction span:nth-child(4) {
+  background-position: 0 -9.375rem;
+}
+
+.bookfunction span:nth-child(5) {
+  background-position: 0 0rem;
+}
+
+.bookfunction span:nth-child(6) {
+  background-position: 0 -1.875rem;
+}
+
+
+
+
+.briefintroduction {
+  display: block;
+  font: bold 0.75rem/1.1875rem 'Microsoft Yahei';
+  margin: 0.3125rem 0.625rem;
+  width: 22.1875rem;
+  overflow: hidden;
+  border-radius: 0.625rem;
+}
+
+
+.briefintroduction .deiats {
+  display: block;
+  padding: 0.3125rem 1.25rem 0rem 1.25rem;
+  width: 19.6875rem;
+  background-color: #ace2e6;
+  overflow: auto;
+  max-height: 5rem;
+}
+
+.briefintroduction .deiats * {
+  font: bold 0.75rem/1.1875rem 'Microsoft Yahei';
+  color: #524e4e;
+}
+
+
+.volumelist {
+  width: 22.1875rem;
+  border-radius: 0.3125rem;
+  background-color: aliceblue;
+  margin: 0 0.625rem;
+}
+
+.volumelist .volumeitem {
+  border-bottom: 0.0625rem solid #0aae29;
+  width: 100%;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+}
+
+.volumeitem .volumeitemleft {
+  width: 80%;
+  height: 1.25rem;
+  overflow: hidden;
+}
+
+
+.volumeitem .volumeitemright {
+  width: 19%;
+  height: 1.25rem;
+}
+
+.comment {
+  margin: 1.25rem 0.625rem;
+  width: 22.1875rem;
+  background: #9dd6d1;
+}
+
+.commentinput {
+  border: 0.0625rem solid #198d2c;
+  width: 22.0625rem;
+  height: 2.75rem;
+  border-radius: 0.3125rem;
+}
+
+.commentinput .nologin {
+  padding-left: 1.25rem;
+  font: 1.5rem/2.75rem 'Microsoft Yahei';
+}
+
+.commentinput .committext {
+  width: 18.75rem;
+  height: 2.375rem;
+  margin: 0;
+  padding: 0;
+  border: 0.0625rem solid #cecece;
+  font: 1rem/1.1875rem 'Microsoft Yahei';
+  padding: 0.125rem 0.3125rem;
+  border-radius: 0.3125rem;
+}
+
+.commentsubmit {
+  font: 0.75rem/2.75rem 'Microsoft Yahei';
+  text-align: center;
+  width: 2.5625rem;
+}
+
+.commentinput input:hover {
+  border: 0.0625rem solid #2f9160;
+}
+
+.commentcontext {
+  margin-top: 0.625rem;
+  border-top: 0.125rem solid #2f9160;
+  padding-top: 0.3125rem;
+}
+
+.commentitem {
+  width: 21.5625rem;
+  margin: 0 0.3125rem 0.625rem;
+}
+
+.commentitem .commenthearder {
+  width: 100%;
+  color: #b839ad;
+  font: 1.125rem/1.5rem 'Microsoft Yahei';
+
+}
+
+.commentitem .commenttextinfo {
+  margin-top: 0.3125rem;
+  width: 100%;
+  color: #2a4372;
+  font: 1rem/1.25rem 'Microsoft Yahei';
+  border-bottom: 0.125rem solid #2a4372;
+}

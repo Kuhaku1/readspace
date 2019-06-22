@@ -1,0 +1,64 @@
+.userbalance {
+  width: 21.25rem;
+  margin: 0.625rem 0.9375rem 0rem;
+  background-color: #ffffff;
+  border-radius: 0.625rem;
+
+}
+
+.userbalancehearder {
+  width: 100%;
+  border-bottom: 0.0625rem solid #000000;
+}
+
+.userbalancetitle {
+  width: 3.125rem;
+  margin-left: 0.625rem;
+  font: 1rem/1.5rem 'Microsoft Yahei';
+}
+
+.userbalancepay {
+  width: 3.125rem;
+  font: 1rem/1.5rem 'Microsoft Yahei';
+}
+
+.balancevlaue {
+  width: 21.25rem;
+  padding-left: 0.625rem;
+  padding-right: 1.25rem;
+  min-height: 3.75rem;
+  font: 3rem/3.75rem 'Microsoft Yahei';
+}
+
+
+.usericon {
+  width: 21.25rem;
+  margin: 0.625rem 0.9375rem 0rem;
+  background-color: #ffffff;
+  border-radius: 0.625rem;
+
+}
+
+.usericonhearder {
+  width: 100%;
+  border-bottom: 0.0625rem solid #000000;
+}
+
+.usericontitle {
+  width: 3.125rem;
+  margin-left: 0.625rem;
+  font: 1rem/1.5rem 'Microsoft Yahei';
+}
+
+.usericonpay {
+  width: 3.125rem;
+  font: 1rem/1.5rem 'Microsoft Yahei';
+}
+
+.iconvlaue {
+  width: 21.25rem;
+  padding-left: 0.625rem;
+  padding-right: 1.25rem;
+  min-height: 3.75rem;
+  font: 3rem/3.75rem 'Microsoft Yahei';
+}

@@ -1,0 +1,32 @@
+{% extends 'mainsite/home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'mainsite/css/novelrankyear.css' %}">
+{% endblock header %}
+{% block title %}
+这本轻小说真厉害
+{% endblock title %}
+{% block body_center %}
+
+<div id="result">
+  <ul class="clearfix" id="findresult">
+    {% for boomtmp in bookrankyear %}
+    <a class="noshadow" href="{% url "mainsite:book" boomtmp.book.id %}">
+      <li class="info_item fl">
+        <img src="{{ boomtmp.book.image.url }}" alt="{{ boomtmp.book.name }}">
+        <span class="item_name">{{ boomtmp.book.name }}</span>
+        <span class="item_result">
+          {% if boomtmp.book.lastUpdated %}{{ boomtmp.book.lastUpdated }}
+          {% else %}没有数据
+          {% endif %}
+        </span>
+      </li>
+    </a>
+    {% empty %}
+    <a href="">error</a>
+    {% endfor %}
+
+
+  </ul>
+</div>
+{% endblock body_center %}

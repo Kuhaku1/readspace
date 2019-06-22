@@ -1,0 +1,27 @@
+{% extends 'mainsite/home_base.html' %}
+{% load static from staticfiles %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'userspace/css/collection.css' %}">
+{% endblock header %}
+{% block title %}
+阅读空间-收藏
+{% endblock title %}
+{% block body_center %}
+
+{% for tmp in collections %}
+<a class="noshadow" href="{% url "mainsite:book" tmp.book.id %}">
+  <div class="collectionitem clearfix">
+    <div class="collectionimg fl">
+      <img src="{{tmp.book.image.url}}" alt="头像">
+    </div>
+    <div class="collectioninfo fl">
+      <div class="collectionname">{{tmp.book.name}}</div>
+      <div class="collectiontime">{{tmp.collectiontime}}</div>
+    </div>
+  </div>
+</a>
+
+{% endfor %}
+
+
+{% endblock body_center %}
